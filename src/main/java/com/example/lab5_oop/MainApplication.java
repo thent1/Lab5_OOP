@@ -79,6 +79,7 @@ public class MainApplication extends Application {
         EventHandler<ActionEvent> pointHandler = event -> {
             MyEditor.start(new PointShape(scene, root));
             stage.setTitle("Крапка");
+            //myTableWindow.deleteAllRows(myTableWindow.getTableView());
         };
 
         point.setOnAction(pointHandler);
@@ -87,6 +88,8 @@ public class MainApplication extends Application {
         EventHandler<ActionEvent> lineHandler = event -> {
             MyEditor.start(new LineShape(scene, root));
             stage.setTitle("Лінія");
+            //myTableWindow.addRow("Abobashape", 500, 151, 511, 151, myTableWindow.getTableView());
+            //myTableWindow.addRow("shems shape", 500, 151, 511, 151, myTableWindow.getTableView());
         };
 
         line.setOnAction(lineHandler);

@@ -46,4 +46,8 @@ public class MyTableWindow extends Stage {
     public TableView getTableView() {
         return this.tableView;
     }
+
+    public void deleteAllRows(TableView tableView) {
+        tableView.getItems().clear();
+    }
 }
