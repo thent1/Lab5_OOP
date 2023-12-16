@@ -1,6 +1,6 @@
 package com.example.lab5_oop;
 
-import com.example.lab5_oop.Shapes.Shape;
+import com.example.lab5_oop.shapes.Shape;
 
 public class MyEditor {
     private static MyEditor instance;

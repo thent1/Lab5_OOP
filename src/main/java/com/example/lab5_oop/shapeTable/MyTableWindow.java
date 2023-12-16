@@ -1,10 +1,12 @@
-package com.example.lab5_oop.ShapeTable;
+package com.example.lab5_oop.shapeTable;
 
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.*;
 
 public class MyTableWindow extends Stage {
     TableView<ShapeData> tableView;
@@ -23,19 +25,14 @@ public class MyTableWindow extends Stage {
         TableColumn<ShapeData, Integer> x2Column = new TableColumn<>("X2");
         TableColumn<ShapeData, Integer> y2Column = new TableColumn<>("Y2");
 
-        // Призначення значень відповідним колонкам
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         x1Column.setCellValueFactory(cellData -> cellData.getValue().x1Property().asObject());
         y1Column.setCellValueFactory(cellData -> cellData.getValue().y1Property().asObject());
         x2Column.setCellValueFactory(cellData -> cellData.getValue().x2Property().asObject());
         y2Column.setCellValueFactory(cellData -> cellData.getValue().y2Property().asObject());
 
-        addRow("Abobashape", 500, 151, 511, 151, tableView);
-        addRow("shems shape", 500, 151, 511, 151, tableView);
-
         tableView.getColumns().addAll(nameColumn, x1Column, y1Column, x2Column, y2Column);
         nameColumn.setPrefWidth(250);
-
     }
 
     public void addRow(String name, int x1, int y1, int x2, int y2, TableView tableView) {
@@ -49,5 +46,20 @@ public class MyTableWindow extends Stage {
 
     public void deleteAllRows(TableView tableView) {
         tableView.getItems().clear();
+    }
+
+    public void writeToFile() throws IOException {
+        File file = new File("testFile.txt");
+        PrintWriter pw = new PrintWriter(file);
+        for (ShapeData shapeData : tableView.getItems()) {
+            try {
+                file.createNewFile();
+                pw.println(shapeData.getName() + "\t" + shapeData.getX1()+ "\t" + shapeData.getY1()+ "\t" + shapeData.getX2()+ "\t" + shapeData.getY2());
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        pw.close();
     }
 }

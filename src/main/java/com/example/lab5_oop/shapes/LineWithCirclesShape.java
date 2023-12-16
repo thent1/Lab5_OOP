@@ -1,6 +1,6 @@
-package com.example.lab5_oop.Shapes;
+package com.example.lab5_oop.shapes;
 
-import com.example.lab5_oop.Shapes.Shape;
+import com.example.lab5_oop.MainApplication;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -8,12 +8,16 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 
 public class LineWithCirclesShape extends Shape {
+
+    MainApplication mainApplication;
     private Ellipse firstEllipse;
     private Line line;
     private Ellipse secondEllipse;
+    String shapeName = "LineOO";
 
-    public LineWithCirclesShape(Scene scene, Pane root) {
-        super(scene, root);
+    public LineWithCirclesShape(Scene scene, Pane root, MainApplication mainApplication) {
+        super(scene, root, mainApplication);
+        this.mainApplication = mainApplication;
     }
 
     @Override
@@ -70,6 +74,12 @@ public class LineWithCirclesShape extends Shape {
                 firstEllipse.setStroke(Color.BLACK);
                 secondEllipse.setStroke(Color.BLACK);
                 secondEllipse.getStrokeDashArray().clear();
+
+                setData(shapeName, line.getStartX(), line.getStartY(),
+                        line.getEndX(),
+                        line.getEndY(),
+                        mainApplication);
+
                 firstEllipse = null;
                 secondEllipse = null;
                 line = null;
@@ -79,7 +89,7 @@ public class LineWithCirclesShape extends Shape {
     }
 
     @Override
-    public void setData(String shapeName, int x1, int y1, int x2, int y2) {
-
+    public void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication) {
+        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2, mainApplication.getMyTableWindow().getTableView());
     }
 }

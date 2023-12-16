@@ -1,3 +1,6 @@
 
-£
-java:S1186R"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ã„óüÿÿÿÿ8õÛÕÃ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ÑÌ8ï´ˆÄ1
+V
+java:S2387"4"mainApplication" is the name of a field in "Shape".(³İ÷¾ıÿÿÿÿ8øÑĞ‰Ä1
+v
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(öåÉÅúÿÿÿÿ8ØìÁ¨Å1

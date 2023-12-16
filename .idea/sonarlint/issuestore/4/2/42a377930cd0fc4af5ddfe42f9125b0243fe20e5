@@ -1,5 +1,2 @@
 
-^
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(òÒ¡Õ8‰æ§Õ√1
-X	java:S125R"<This block of commented-out lines of code should be removed.(ˇ≥©8Ñ∂‚Üƒ1
-]	java:S125["<This block of commented-out lines of code should be removed.(Âôñà˘ˇˇˇˇ8Ö∂‚Üƒ1
+g	java:S112U"FDefine and throw a dedicated exception instead of using a generic one.(“Ç“È¸ˇˇˇˇ8†Â¡®≈1

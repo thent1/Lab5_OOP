@@ -1,18 +1,22 @@
-package com.example.lab5_oop.Shapes;
+package com.example.lab5_oop.shapes;
 
-import com.example.lab5_oop.Shapes.Shape;
+import com.example.lab5_oop.MainApplication;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 
 public class EllipseShape extends Shape {
+
+    MainApplication mainApplication;
     private Ellipse ellipse;
     double x;
     double y;
+    String shapeName = "Ellipse";
 
-    public EllipseShape(Scene scene, Pane root) {
-        super(scene, root);
+    public EllipseShape(Scene scene, Pane root, MainApplication mainApplication) {
+        super(scene, root, mainApplication);
+        this.mainApplication = mainApplication;
     }
 
     @Override
@@ -29,8 +33,8 @@ public class EllipseShape extends Shape {
 
         root.setOnMouseDragged(mouseEvent -> {
             if (ellipse != null) {
-                ellipse.setCenterX(x+(mouseEvent.getX()-x)/2);
-                ellipse.setCenterY(y+(mouseEvent.getY()-y)/2);
+                ellipse.setCenterX(x + (mouseEvent.getX() - x) / 2);
+                ellipse.setCenterY(y + (mouseEvent.getY() - y) / 2);
 
                 ellipse.setRadiusX(mouseEvent.getX()-ellipse.getCenterX());
                 ellipse.setRadiusY(mouseEvent.getY()-ellipse.getCenterY());
@@ -43,6 +47,12 @@ public class EllipseShape extends Shape {
                 ellipse.setFill(Color.YELLOW);
                 ellipse.setStroke(Color.BLACK);
                 ellipse.getStrokeDashArray().clear();
+
+                setData(shapeName, x, y,
+                        ellipse.getCenterX()+ellipse.getRadiusX(),
+                        ellipse.getCenterY()+ellipse.getRadiusY(),
+                        mainApplication);
+
                 ellipse = null;
             }
 
@@ -50,7 +60,7 @@ public class EllipseShape extends Shape {
     }
 
     @Override
-    public void setData(String shapeName, int x1, int y1, int x2, int y2) {
-
+    public void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication) {
+        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2, mainApplication.getMyTableWindow().getTableView());
     }
 }

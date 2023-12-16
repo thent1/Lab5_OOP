@@ -1,9 +1,11 @@
-package com.example.lab5_oop.Shapes;
+package com.example.lab5_oop.shapes;
 
+import com.example.lab5_oop.MainApplication;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 public abstract class Shape {
+    MainApplication mainApplication;
     public Scene scene;
     public Pane root;
 
@@ -14,12 +16,12 @@ public abstract class Shape {
     private int y2;
 
 
-    public Shape(Scene scene, Pane root) {
+    public Shape(Scene scene, Pane root, MainApplication mainApplication) {
         this.scene = scene;
         this.root = root;
     }
 
     public abstract void editShape();
 
-    public abstract void setData(String shapeName, int x1, int y1, int x2, int y2);
+    public abstract void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication);
 }

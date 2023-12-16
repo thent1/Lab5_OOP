@@ -1,6 +1,6 @@
-package com.example.lab5_oop.Shapes;
+package com.example.lab5_oop.shapes;
 
-import com.example.lab5_oop.Shapes.Shape;
+import com.example.lab5_oop.MainApplication;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -9,6 +9,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class CubeShape extends Shape {
+    MainApplication mainApplication;
     private Rectangle frontRectangle;
     private Rectangle backRectangle;
 
@@ -18,9 +19,11 @@ public class CubeShape extends Shape {
     private Line bottomRightLine;
 
     private boolean isKeyPressed;
+    String shapeName = "Cube";
 
-    public CubeShape(Scene scene, Pane root) {
-        super(scene, root);
+    public CubeShape(Scene scene, Pane root, MainApplication mainApplication) {
+        super(scene, root, mainApplication);
+        this.mainApplication = mainApplication;
     }
 
     @Override
@@ -100,6 +103,11 @@ public class CubeShape extends Shape {
                 bottomRightLine.getStrokeDashArray().clear();
                 bottomLeftLine.getStrokeDashArray().clear();
 
+                setData(shapeName, frontRectangle.getX(), frontRectangle.getY(),
+                        frontRectangle.getX()+frontRectangle.getWidth(),
+                        frontRectangle.getY()+frontRectangle.getHeight(),
+                            mainApplication);
+
                 frontRectangle = null;
                 backRectangle = null;
 
@@ -118,11 +126,6 @@ public class CubeShape extends Shape {
                 isKeyPressed = false;
             }
         });
-    }
-
-    @Override
-    public void setData(String shapeName, int x1, int y1, int x2, int y2) {
-        // TODO document why this method is empty
     }
 
     private void setLines() {
@@ -152,6 +155,11 @@ public class CubeShape extends Shape {
         backRectangle.setHeight(frontRectangle.getHeight());
         backRectangle.setX(frontRectangle.getX() + frontRectangle.getWidth() / 2);
         backRectangle.setY(frontRectangle.getY() - frontRectangle.getHeight() / 2);
+    }
+
+    @Override
+    public void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication) {
+        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2, mainApplication.getMyTableWindow().getTableView());
     }
 
 }

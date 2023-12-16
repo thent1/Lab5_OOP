@@ -1,19 +1,21 @@
 
 m
-java:S1104"QMake scene a static final constant or non-public and provide accessors if needed.(àš|8ÀŒ¢ÕÃ1
+java:S1104	"QMake scene a static final constant or non-public and provide accessors if needed.(àš|8¤·ØˆÄ1
 r
-java:S1104"PMake root a static final constant or non-public and provide accessors if needed.(íËÛÔùÿÿÿÿ8½ıÕÃ1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ÑÌ8ØöúÕÃ1
-[
-java:S5993"9Change the visibility of this constructor to "protected".(ïªßüøÿÿÿÿ8ôŸ‘ÕÃ1
+java:S1104
+"PMake root a static final constant or non-public and provide accessors if needed.(íËÛÔùÿÿÿÿ8¤·ØˆÄ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡ÑÌ8¥·ØˆÄ1
+V
+java:S5993"9Change the visibility of this constructor to "protected".(ò›† 8«·ØˆÄ1
+S
+java:S1172"6Remove this unused method parameter "mainApplication".(ò›† 8¯·ØˆÄ1
 O
-java:S1068
-"-Remove this unused "shapeName" private field.(¥ø°øşÿÿÿÿ8ÃıÕÃ1
+java:S1068"-Remove this unused "shapeName" private field.(¥ø°øşÿÿÿÿ8úçØˆÄ1
 B
-java:S1068"&Remove this unused "x1" private field.(ÒÒú-8ÃıÕÃ1
+java:S1068"&Remove this unused "x1" private field.(ÒÒú-8¯·ØˆÄ1
 H
-java:S1068"&Remove this unused "y1" private field.(øÅÒœÿÿÿÿÿ8ÃıÕÃ1
+java:S1068"&Remove this unused "y1" private field.(øÅÒœÿÿÿÿÿ8°·ØˆÄ1
 C
-java:S1068"&Remove this unused "x2" private field.(ÁÃÃ8ÃıÕÃ1
+java:S1068"&Remove this unused "x2" private field.(ÁÃÃ8°·ØˆÄ1
 C
-java:S1068"&Remove this unused "y2" private field.(“µÌ“8ÄıÕÃ1
+java:S1068"&Remove this unused "y2" private field.(“µÌ“8°·ØˆÄ1

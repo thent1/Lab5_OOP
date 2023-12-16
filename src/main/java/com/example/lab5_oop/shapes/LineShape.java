@@ -1,16 +1,20 @@
-package com.example.lab5_oop.Shapes;
+package com.example.lab5_oop.shapes;
 
-import com.example.lab5_oop.Shapes.Shape;
+import com.example.lab5_oop.MainApplication;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class LineShape extends Shape {
-    private Line line;
 
-    public LineShape(Scene scene, Pane root) {
-        super(scene, root);
+    MainApplication mainApplication;
+    private Line line;
+    String shapeName = "Line";
+
+    public LineShape(Scene scene, Pane root, MainApplication mainApplication) {
+        super(scene, root, mainApplication);
+        this.mainApplication = mainApplication;
     }
 
     @Override
@@ -39,6 +43,12 @@ public class LineShape extends Shape {
             if (line != null){
                 line.setStroke(Color.BLACK);
                 line.getStrokeDashArray().clear();
+
+                setData(shapeName, line.getStartX(), line.getStartY(),
+                        line.getEndX(),
+                        line.getEndY(),
+                        mainApplication);
+
                 line = null;
             }
 
@@ -46,7 +56,7 @@ public class LineShape extends Shape {
     }
 
     @Override
-    public void setData(String shapeName, int x1, int y1, int x2, int y2) {
-
+    public void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication) {
+        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2, mainApplication.getMyTableWindow().getTableView());
     }
 }

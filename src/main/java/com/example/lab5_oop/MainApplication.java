@@ -1,7 +1,7 @@
 package com.example.lab5_oop;
 
-import com.example.lab5_oop.ShapeTable.MyTableWindow;
-import com.example.lab5_oop.Shapes.*;
+import com.example.lab5_oop.shapeTable.MyTableWindow;
+import com.example.lab5_oop.shapes.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,18 +13,20 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class MainApplication extends Application {
+import java.io.IOException;
 
+public class MainApplication extends Application {
+    MyTableWindow myTableWindow;
     @Override
     public void start(Stage stage) {
 
-        String path = "D:\\JavaProjects\\Lab5_OOP\\src\\main\\resources\\com\\example\\";
+        String path = "file:src/main/resources/com/example/";
 
-        MyTableWindow myTableWindow = new MyTableWindow();
+        myTableWindow = new MyTableWindow();
         Pane root = new Pane();
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 600, 600);
-        stage.setTitle("Lab4");
+        stage.setTitle("Lab5");
         borderPane.setCenter(root);
         MenuBar menuBar = new MenuBar();
         Menu file = new Menu("Файл");
@@ -46,7 +48,9 @@ public class MainApplication extends Application {
         MenuItem lineWithCircles = new MenuItem("Лінія з кружечками");
         MenuItem cube = new MenuItem("Куб");
 
-        MenuItem tableItem = new MenuItem("Таблиця");
+        MenuItem showTableItem = new MenuItem("Таблиця");
+        MenuItem clearTableItem = new MenuItem("Очистити таблицю");
+        MenuItem writeFileItem = new MenuItem("Записати в файл");
 
         ToolBar toolBar = new ToolBar();
         ToolBarButton pointButton = new ToolBarButton(pointImage);
@@ -66,37 +70,40 @@ public class MainApplication extends Application {
         toolBar.getItems().addAll(pointButton, lineButton, rectButton, ellipseButton, lineWithCirclesButton, cubeButton);
         toolBar.setOrientation(Orientation.VERTICAL);
 
-        file.getItems().add(tableItem);
+        file.getItems().addAll(showTableItem, clearTableItem, writeFileItem);
         shapes.getItems().addAll(point, line, rectangle, ellipse, lineWithCircles, cube);
         borderPane.setTop(menuBar);
         borderPane.setLeft(toolBar);
 
-        tableItem.setOnAction(event -> {
-            myTableWindow.show();
-            myTableWindow.addRow("aboba", 515, 51, 51,7, myTableWindow.getTableView());
+        showTableItem.setOnAction(event -> myTableWindow.show());
+        clearTableItem.setOnAction(event -> myTableWindow.deleteAllRows(myTableWindow.getTableView()));
+
+        writeFileItem.setOnAction(event -> {
+            try {
+                myTableWindow.writeToFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         EventHandler<ActionEvent> pointHandler = event -> {
-            MyEditor.start(new PointShape(scene, root));
+            MyEditor.start(new PointShape(scene, root, this));
             stage.setTitle("Крапка");
-            //myTableWindow.deleteAllRows(myTableWindow.getTableView());
         };
 
         point.setOnAction(pointHandler);
         pointButton.setOnAction(pointHandler);
 
         EventHandler<ActionEvent> lineHandler = event -> {
-            MyEditor.start(new LineShape(scene, root));
+            MyEditor.start(new LineShape(scene, root, this));
             stage.setTitle("Лінія");
-            //myTableWindow.addRow("Abobashape", 500, 151, 511, 151, myTableWindow.getTableView());
-            //myTableWindow.addRow("shems shape", 500, 151, 511, 151, myTableWindow.getTableView());
         };
 
         line.setOnAction(lineHandler);
         lineButton.setOnAction(lineHandler);
 
         EventHandler<ActionEvent> rectangleHandler = event -> {
-            MyEditor.start(new RectangleShape(scene, root));
+            MyEditor.start(new RectangleShape(scene, root, this));
             stage.setTitle("Прямокутник");
         };
 
@@ -104,7 +111,7 @@ public class MainApplication extends Application {
         rectButton.setOnAction(rectangleHandler);
 
         EventHandler<ActionEvent> ellipseHandler = event -> {
-            MyEditor.start(new EllipseShape(scene, root));
+            MyEditor.start(new EllipseShape(scene, root, this));
             stage.setTitle("Еліпс");
         };
 
@@ -112,7 +119,7 @@ public class MainApplication extends Application {
         ellipseButton.setOnAction(ellipseHandler);
 
         EventHandler<ActionEvent> lineOOHandler = event -> {
-            MyEditor.start(new LineWithCirclesShape(scene, root));
+            MyEditor.start(new LineWithCirclesShape(scene, root, this));
             stage.setTitle("Лінія з кружечками");
         };
 
@@ -120,7 +127,7 @@ public class MainApplication extends Application {
         lineWithCirclesButton.setOnAction(lineOOHandler);
 
         EventHandler<ActionEvent> cubeHandler = event -> {
-            MyEditor.start(new CubeShape(scene, root));
+            MyEditor.start(new CubeShape(scene, root, this));
             stage.setTitle("Куб");
         };
 
@@ -132,8 +139,11 @@ public class MainApplication extends Application {
 
     }
 
+    public MyTableWindow getMyTableWindow() {
+        return this.myTableWindow;
+    }
+
     public static void main(String[] args) {
         launch();
     }
 }
-

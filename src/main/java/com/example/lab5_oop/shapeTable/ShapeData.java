@@ -1,4 +1,4 @@
-package com.example.lab5_oop.ShapeTable;
+package com.example.lab5_oop.shapeTable;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
