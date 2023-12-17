@@ -40,7 +40,6 @@ public class ShapeData {
         return y2;
     }
 
-    // Методи для отримання властивостей для використання в TableColumn.setCellValueFactory
     public StringProperty nameProperty() {
         return new SimpleStringProperty(name);
     }
