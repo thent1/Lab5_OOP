@@ -44,6 +44,6 @@ public class PointShape extends Shape {
 
     @Override
     public void setData(String shapeName, double x1, double y1, double x2, double y2, MainApplication mainApplication) {
-        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2, mainApplication.getMyTableWindow().getTableView());
+        mainApplication.getMyTableWindow().addRow(shapeName, (int)x1, (int)y1, (int)x2, (int)y2);
     }
 }

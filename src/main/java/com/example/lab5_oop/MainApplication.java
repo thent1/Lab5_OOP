@@ -77,7 +77,7 @@ public class MainApplication extends Application {
         borderPane.setLeft(toolBar);
 
         showTableItem.setOnAction(event -> myTableWindow.show());
-        clearTableItem.setOnAction(event -> myTableWindow.deleteAllRows(myTableWindow.getTableView()));
+        clearTableItem.setOnAction(event -> myTableWindow.deleteAllRows());
 
         writeFileItem.setOnAction(event -> {
             try {

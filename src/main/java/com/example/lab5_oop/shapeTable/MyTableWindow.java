@@ -38,16 +38,12 @@ public class MyTableWindow extends Stage {
         nameColumn.setPrefWidth(250);
     }
 
-    public void addRow(String name, int x1, int y1, int x2, int y2, TableView tableView) {
+    public void addRow(String name, int x1, int y1, int x2, int y2) {
         ShapeData shapeData = new ShapeData(name, x1, y1, x2, y2);
         tableView.getItems().add(shapeData);
     }
 
-    public TableView getTableView() {
-        return this.tableView;
-    }
-
-    public void deleteAllRows(TableView tableView) {
+    public void deleteAllRows() {
         tableView.getItems().clear();
     }
 
