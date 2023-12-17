@@ -13,12 +13,15 @@ public class MyTableWindow extends Stage {
     public MyTableWindow() {
         Pane pane = new Pane();
         Scene scene = new Scene(pane, 600, 600);
+        setResizable(false);
         setTitle("Table");
         setScene(scene);
+
 
         tableView = new TableView<>();
         pane.getChildren().add(tableView);
         tableView.setPrefSize(600, 600);
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         TableColumn<ShapeData, String> nameColumn = new TableColumn<>("Name");
         TableColumn<ShapeData, Integer> x1Column = new TableColumn<>("X1");
         TableColumn<ShapeData, Integer> y1Column = new TableColumn<>("Y1");

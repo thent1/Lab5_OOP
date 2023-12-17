@@ -3,6 +3,7 @@ package com.example.lab5_oop;
 import com.example.lab5_oop.shapeTable.MyTableWindow;
 import com.example.lab5_oop.shapes.*;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
@@ -130,6 +131,11 @@ public class MainApplication extends Application {
             MyEditor.start(new CubeShape(scene, root, this));
             stage.setTitle("Куб");
         };
+
+        stage.setOnCloseRequest(event -> {
+            myTableWindow.close();
+            Platform.exit();
+        });
 
         cube.setOnAction(cubeHandler);
         cubeButton.setOnAction(cubeHandler);
