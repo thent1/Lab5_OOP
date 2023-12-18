@@ -1,2 +1,14 @@
 
-g	java:S112V"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 åÁ¨Å1
+g	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8 åÁ¨Å1
+R
+java:S2209\"5Change this instance-reference to a static reference.(¤Ë¬Ë8–ôÈøÇ1
+R
+java:S2209d"5Change this instance-reference to a static reference.(İ­›†8šôÈøÇ1
+W
+java:S2209l"5Change this instance-reference to a static reference.(‡µ× ùÿÿÿÿ8ë†ÉøÇ1
+R
+java:S2209t"5Change this instance-reference to a static reference.(ÚŸ€8»¿ÉøÇ1
+R
+java:S2209|"5Change this instance-reference to a static reference.(ÀÕªÜ8½¿ÉøÇ1
+X
+java:S2209„"5Change this instance-reference to a static reference.(¬İÃ—şÿÿÿÿ8¿¿ÉøÇ1

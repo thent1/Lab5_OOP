@@ -33,6 +33,7 @@ public class MainApplication extends Application {
         Menu file = new Menu("Файл");
         Menu shapes = new Menu("Фігури");
         Menu info = new Menu("Довідка");
+        MyEditor myEditor = MyEditor.getInstance();
         menuBar.getMenus().addAll(file, shapes, info);
 
         Image pointImage = new Image(path + "point.png");
@@ -88,7 +89,7 @@ public class MainApplication extends Application {
         });
 
         EventHandler<ActionEvent> pointHandler = event -> {
-            MyEditor.start(new PointShape(scene, root, this));
+            myEditor.start(new PointShape(scene, root, this));
             stage.setTitle("Крапка");
         };
 
@@ -96,7 +97,7 @@ public class MainApplication extends Application {
         pointButton.setOnAction(pointHandler);
 
         EventHandler<ActionEvent> lineHandler = event -> {
-            MyEditor.start(new LineShape(scene, root, this));
+            myEditor.start(new LineShape(scene, root, this));
             stage.setTitle("Лінія");
         };
 
@@ -104,7 +105,7 @@ public class MainApplication extends Application {
         lineButton.setOnAction(lineHandler);
 
         EventHandler<ActionEvent> rectangleHandler = event -> {
-            MyEditor.start(new RectangleShape(scene, root, this));
+            myEditor.start(new RectangleShape(scene, root, this));
             stage.setTitle("Прямокутник");
         };
 
@@ -112,7 +113,7 @@ public class MainApplication extends Application {
         rectButton.setOnAction(rectangleHandler);
 
         EventHandler<ActionEvent> ellipseHandler = event -> {
-            MyEditor.start(new EllipseShape(scene, root, this));
+            myEditor.start(new EllipseShape(scene, root, this));
             stage.setTitle("Еліпс");
         };
 
@@ -120,7 +121,7 @@ public class MainApplication extends Application {
         ellipseButton.setOnAction(ellipseHandler);
 
         EventHandler<ActionEvent> lineOOHandler = event -> {
-            MyEditor.start(new LineWithCirclesShape(scene, root, this));
+            myEditor.start(new LineWithCirclesShape(scene, root, this));
             stage.setTitle("Лінія з кружечками");
         };
 
@@ -128,7 +129,7 @@ public class MainApplication extends Application {
         lineWithCirclesButton.setOnAction(lineOOHandler);
 
         EventHandler<ActionEvent> cubeHandler = event -> {
-            MyEditor.start(new CubeShape(scene, root, this));
+            myEditor.start(new CubeShape(scene, root, this));
             stage.setTitle("Куб");
         };
 

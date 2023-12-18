@@ -16,7 +16,7 @@ public class MyEditor {
         return instance;
     }
 
-    public static void start(Shape shape) {
+    public void start(Shape shape) {
         shape.editShape();
     }
 }

@@ -48,7 +48,7 @@ public class MyTableWindow extends Stage {
     }
 
     public void writeToFile() throws IOException {
-        File file = new File("testFile.txt");
+        File file = new File("TableFile.txt");
         PrintWriter pw = new PrintWriter(file);
         for (ShapeData shapeData : tableView.getItems()) {
             try {
